@@ -12,8 +12,9 @@ RUN install -s solc/solc /usr/bin
 
 FROM archlinux as runtime
 
-RUN pacman -Sy --noconfirm git libnghttp2 nodejs npm
-RUN npm install -g truffle @truffle/hdwallet-provider
+RUN pacman -Sy --noconfirm git libnghttp2 nodejs npm python
+RUN npm install -g truffle 
+RUN npm install -g @truffle/hdwallet-provider
 
 COPY --from=builder /usr/bin/solc /usr/bin/     
 
